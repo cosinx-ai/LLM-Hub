@@ -8,7 +8,7 @@ A curated collection of seminal works, tools, models, and datasets in the realm 
 
 ## 🌟 Overview
 
-LLM-Hub offers a concise roadmap for anyone looking to grasp and stay up-to-date with major breakthroughs in the LLM field. We’ve distilled the vast literature into a streamlined set of classic resources that showcase important milestones, techniques, and applications.
+LLM-Hub offers a concise roadmap for anyone looking to grasp and stay up-to-date with major breakthroughs in the LLM field. We've distilled the vast literature into a streamlined set of classic resources that showcase important milestones, techniques, and applications.
 
 ## 🌳 Contents
 - [1. Key Papers](#1-key-papers)
@@ -19,7 +19,8 @@ LLM-Hub offers a concise roadmap for anyone looking to grasp and stay up-to-date
   - [2.1 Tools & Frameworks](#21-tools--frameworks)
   - [2.2 Model Introductions](#22-model-introductions)
 - [3. Post-Training & Alignment](#3-post-training--alignment)
-  - [3.1 Common Methods](#31-common-methods)
+  - [3.1 Supervised Fine-Tuning (SFT)](#31-supervised-fine-tuning-sft)
+  - [3.2 Reinforcement Learning (RL)](#32-reinforcement-learning-rl)
 - [4. Datasets](#4-datasets)
 - [5. Evaluation](#5-evaluation)
 - [6. Deployment & Inference](#6-deployment--inference)
@@ -111,26 +112,47 @@ LLM-Hub offers a concise roadmap for anyone looking to grasp and stay up-to-date
 
 ## 3. Post-Training & Alignment
 
-### 3.1 Common Methods
+### 3.1 Supervised Fine-Tuning (SFT)
 1. **Supervised Fine-Tuning (SFT)**  
-   - *Overview*: Curation-based fine-tuning for domain-specific improvement.  
+   - *Overview*: Curation-based fine-tuning for domain-specific improvement. This method involves training a pre-trained model on a smaller, task-specific dataset to improve its performance on that particular task.  
    - *Reference*: [Fine-Tuning Language Models from Human Preferences (PDF)](https://arxiv.org/pdf/2201.08239)
 
-2. **Reinforcement Learning from Human Feedback (RLHF)**  
-   - *Overview*: Leverages human preferences to optimize clarity and helpfulness.  
+### 3.2 Reinforcement Learning (RL)
+1. **Reinforcement Learning from Human Feedback (RLHF)**  
+   - *Overview*: Leverages human preferences to optimize clarity and helpfulness. This approach uses feedback from human evaluators to guide the model towards generating more accurate and contextually appropriate responses.  
    - *Reference*: [Learning to Summarize from Human Feedback (PDF)](https://arxiv.org/pdf/2009.01325.pdf)
 
-3. **Direct Preference Optimization (DPO)**  
-   - *Overview*: Uses preference datasets to iteratively adjust model behavior.  
+2. **Direct Preference Optimization (DPO)**  
+   - *Overview*: Uses preference datasets to iteratively adjust model behavior. DPO involves collecting preference data from users and using it to fine-tune the model's outputs to better align with user expectations.  
    - *Reference*: [DPO Paper (PDF)](https://arxiv.org/pdf/2305.10403.pdf)
 
-4. **Proximal Policy Optimization (PPO)**  
-   - *Overview*: A stable RL algorithm enabling balanced exploration/exploitation.  
+3. **Proximal Policy Optimization (PPO)**  
+   - *Overview*: A stable RL algorithm enabling balanced exploration/exploitation. PPO is widely used in training models for tasks that require a balance between trying new strategies and sticking to known successful ones.  
    - *Reference*: [PPO for Dialogue (PDF)](https://arxiv.org/pdf/1707.06347.pdf)
 
-5. **Alignment & Reward Modeling (RM)**  
-   - *Overview*: Designs reward signals to ensure outputs remain aligned with ethical norms.  
+4. **Alignment & Reward Modeling (RM)**  
+   - *Overview*: Designs reward signals to ensure outputs remain aligned with ethical norms. This involves creating reward functions that encourage the model to produce outputs that are safe and ethical.  
    - *Reference*: [Constitutional AI (PDF)](https://arxiv.org/pdf/2212.08073.pdf)
+
+### 3.3 Successful Cases
+
+1. **DeepSeek-R1-Zero and DeepSeek-R1** 
+   - *Link*: [DeepSeek-R1-Zero and DeepSeek-R1 (PDF)](https://arxiv.org/pdf/2501.12948)
+   - *Overview*: The paper introduces DeepSeek-R1-Zero and DeepSeek-R1, models enhancing LLM reasoning via reinforcement learning (RL). DeepSeek-R1-Zero trains purely through RL without supervised fine-tuning (SFT), achieving strong performance on reasoning benchmarks like AIME 2024 and MATH-500. DeepSeek-R1 improves on this by adding cold-start data and a multi-stage training pipeline, addressing readability and language mixing issues, and matching OpenAI-o1-1217 performance. The paper also demonstrates effective distillation of reasoning capabilities to smaller models, outperforming previous benchmarks and open-sourcing the distilled models.
+   - *Key Methods*: 
+     - **Group Relative Policy Optimization (GRPO)**: For efficient RL.
+     - **Rule-Based Reward System**: Ensures accuracy and format.
+     - **Training Template**: Guides reasoning processes.
+   - *Significance*: These innovations enable autonomous development of reasoning behaviors, significantly advancing AI reasoning capabilities.
+
+2. **Tülu 3**  
+   - *Link*: [Tülu 3 (PDF)](https://arxiv.org/abs/2411.15124)
+   - *Overview*: Language model post-training is applied to refine behaviors and unlock new skills across a wide range of language models, but open recipes for applying these techniques lag behind proprietary ones. To bridge this gap, Tülu 3 introduces a family of fully-open state-of-the-art post-trained models, alongside its data, code, and training recipes, serving as a comprehensive guide for modern post-training techniques. Tülu 3, which builds on Llama 3.1 base models, achieves results surpassing the instruct versions of Llama 3.1, Qwen 2.5, Mistral, and even closed models such as GPT-4o-mini and Claude 3.5-Haiku.
+   - *Key Methods*: 
+     - **Supervised Fine-Tuning (SFT)**
+     - **Direct Preference Optimization (DPO)**
+     - **Reinforcement Learning with Verifiable Rewards (RLVR)**
+   - *Significance*: Tülu 3 builds a multi-task evaluation scheme for post-training with development and unseen evaluations, standard benchmark implementations, and substantial decontamination of existing open datasets on said benchmarks. The release includes model weights, a demo, and the complete recipe — datasets for diverse core skills, a robust toolkit for data curation and evaluation, the training code and infrastructure, and a detailed report for reproducing and further adapting the Tülu 3 approach to more domains.
 
 ---
 
