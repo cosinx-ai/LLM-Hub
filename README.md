@@ -21,6 +21,7 @@ LLM-Hub offers a concise roadmap for anyone looking to grasp and stay up-to-date
 - [3. Post-Training & Alignment](#3-post-training--alignment)
   - [3.1 Supervised Fine-Tuning (SFT)](#31-supervised-fine-tuning-sft)
   - [3.2 Reinforcement Learning (RL)](#32-reinforcement-learning-rl)
+  - [3.3 Successful Cases](#33-successful-cases)
 - [4. Datasets](#4-datasets)
 - [5. Evaluation](#5-evaluation)
 - [6. Deployment & Inference](#6-deployment--inference)
